@@ -15,8 +15,8 @@ namespace PipedOutputPollutedElectrolyzerPatchPatches {
         public static void AddPollutedElectrolyzer(GameObject go)
 		{
             var AddOutput = Traverse.Create(typeof(ApplyExhaust)).Method("AddOutput", new[] { typeof(GameObject), typeof(CellOffset), typeof(SimHashes) });
-			AddOutput.GetValue(go, new CellOffset(1, 1), SimHashes.ContaminatedOxygen);
-            AddOutput.GetValue(go, new CellOffset(0, 1), SimHashes.Hydrogen);
+			AddOutput.GetValue(go, new CellOffset(1, 0), SimHashes.ContaminatedOxygen);
+            AddOutput.GetValue(go, new CellOffset(1, 1), SimHashes.Hydrogen);
 		}
 
         [HarmonyPatch(typeof(PollutedElectrolyserConfig), "DoPostConfigurePreview")]
